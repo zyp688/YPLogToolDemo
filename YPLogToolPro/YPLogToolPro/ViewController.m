@@ -31,7 +31,7 @@
 
 
 - (void)printLogs {
-    for (int i = 0 ; i < 10; i ++) {
+    for (int i = 0 ; i < 2000; i ++) {
         if (i % 3 == 0) {
             YPWLogInfo(@"哒哒哒冒蓝火的加特林, 第%d把", i);
         }else if (i % 3 == 1) {
@@ -40,7 +40,7 @@
             YPWLogError(@"哒哒哒冒蓝火的加特林, 第%d把", i);
         }
         
-        [NSThread sleepForTimeInterval:1];
+        [NSThread sleepForTimeInterval:0.5];
     }
 }
 

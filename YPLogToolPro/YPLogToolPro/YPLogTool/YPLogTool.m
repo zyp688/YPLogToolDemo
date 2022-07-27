@@ -8,37 +8,46 @@
 
 #import "YPLogTool.h"
 
-
+// 存储所有用户日志的根文件夹 - 内涵所有用户文件夹
 #define YPSaveLogsDirectoryPath     [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/YPLogs"]
 
+// 日志数据模型
 @implementation YPLogContentModel
 
 @end
 
 
-
+// 日志工具类
 @implementation YPLogTool
 
 
 static BOOL _writeToFile = NO;
+
 static BOOL _forceToWirte = NO;
+
 static YP_LOG_LEVEL_TYPE _curLogType = YP_LOG_LEVEL_INFO;
+
 static NSString *_curUserId = @"DefaultUser";
+
 static NSString *_curUserDirectoryPath = nil;
-static NSMutableArray *_tempNoClearUserDirectories = nil;
+
+static NSMutableArray *_tempNoClearUserDirectoryNames = nil;
+
 static NSString *_useBeginTimeDayStr = nil;
+
 static NSMutableArray <YPLogContentModel *>*_logContentModelsDataArr = nil;
+
 static long long _logTimes = 0;
 
 
 #pragma mark -
-#pragma mark - 🔥 public Methods 🔥
+#pragma mark - 🔥 public Methods 🔥 公共方法
 
 //MARK: - setWriteToFileOn: bindUserId:
 + (void)setWriteToFileOn:(BOOL)on bindUserId:(NSString *)userId {
     _writeToFile = on;
-    _curUserId = (_curUserId && _curUserId.length) ? _curUserId : @"DefaultUser";
-    
+    _curUserId = (userId && userId.length) ? userId : @"DefaultUser";
+
     [YPLogTool initMembers];
 
     [YPLogTool createSaveDirectory];
@@ -56,6 +65,7 @@ static long long _logTimes = 0;
     _curLogType = type;
     NSString *timeStr = [YPLogTool getFormatTimeStr];
 #if DEBUG
+
     if ((!_writeToFile) && (!_forceToWirte)) {
         if (type == YP_LOG_LEVEL_INFO) {
             fprintf(stderr,"❄️『INFO』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
@@ -70,7 +80,6 @@ static long long _logTimes = 0;
     
 #else
 #endif
-
     NSString *curFmtlogStr = [YPLogTool getFmtLogStrWithTime:timeStr file:file line:line function:function format:format];
     UIColor *fontColor = type == YP_LOG_LEVEL_INFO ? [UIColor blackColor] : type == YP_LOG_LEVEL_WARN ? [UIColor yellowColor] : type == YP_LOG_LEVEL_ERROR ? [UIColor redColor] : [UIColor blackColor];
     YPLogContentModel *model = [YPLogContentModel new];
@@ -83,21 +92,24 @@ static long long _logTimes = 0;
         return;
     }
     
+    
     NSString *curDayStr = [[timeStr componentsSeparatedByString:@" "][0] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     if (![curDayStr isEqualToString:_useBeginTimeDayStr]) {
-        YPWLogWarn(@"少年够疯狂！该休息休息了！时间跨度:【%@->%@】", _useBeginTimeDayStr, curDayStr);
+        YPWLogWarn(@"少年够疯狂,决战到天亮！跨夜时间:【%@->%@】", _useBeginTimeDayStr, curDayStr);
         _useBeginTimeDayStr = curDayStr;
-        [_tempNoClearUserDirectories removeAllObjects];
+        [_tempNoClearUserDirectoryNames removeAllObjects];
     }
     
     if (!_forceToWirte) {
 #if DEBUG
 #else
+
         if (_writeToFile) {
             [YPLogTool writeLogWithTime:timeStr file:file line:line function:function format:format];
         }
 #endif
     }else {
+       
         [YPLogTool writeLogWithTime:timeStr file:file line:line function:function format:format];
     }
 }
@@ -120,8 +132,8 @@ static long long _logTimes = 0;
     if (!_logContentModelsDataArr) {
         _logContentModelsDataArr = [NSMutableArray array];
     }
-    if (!_tempNoClearUserDirectories) {
-        _tempNoClearUserDirectories = [NSMutableArray array];
+    if (!_tempNoClearUserDirectoryNames) {
+        _tempNoClearUserDirectoryNames = [NSMutableArray array];
     }
 }
 
@@ -161,11 +173,12 @@ static long long _logTimes = 0;
     NSString *dayStr = [[timeStr componentsSeparatedByString:@" "][0] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     NSError *error = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
+
     NSString *filePath = [_curUserDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"YPLog_%@_%@.text", _curUserId, dayStr]];
-    if(![fileManager fileExistsAtPath:filePath]) {// 如果日志文件不存在 - 创建并写入日志文件
+    if(![fileManager fileExistsAtPath:filePath]) {
         [logStr writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
         if (error) {
-            YPWLogError(@"文件写入失败 errorInfo: %@", error.domain);
+            YPWLogError(@"日志信息写入文件失败 errorInfo: %@", error.domain);
         }
         
     }else {
@@ -178,6 +191,7 @@ static long long _logTimes = 0;
     }
     
 #if DEBUG
+
     if (_curLogType == YP_LOG_LEVEL_INFO) {
         fprintf(stderr,"❄️『INFO』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
     }else if (_curLogType == YP_LOG_LEVEL_WARN) {
@@ -190,30 +204,40 @@ static long long _logTimes = 0;
 #else
 #endif
     
+
     _logTimes ++;
-    if (!(_logTimes % 1000)) {
+    if (!(_logTimes % 1000)) {// 每1000次打印，校验一回文件大小相关问题，降低频率，增加性能   => 实测 1000次大概是0.1*Mb左右
         FILE_SIZE_CHECK_LOOP: {
+            
             float curFileSize = [YPLogTool getTotalLogsSizeMb];
             if (curFileSize >= maxFoldSize) {
                 FILE_EARLIEST_LOOP: {
+                    
                     NSString *earliestFilePath = [YPLogTool getEarliestLogFilePath];
                     if ([earliestFilePath isEqualToString:@"NoFilePath"]) {
                         return;
                     }
+                    
                     NSMutableArray *temp = [NSMutableArray arrayWithArray:[earliestFilePath componentsSeparatedByString:@"/"]];
+                    
                     [temp removeLastObject];
+                    
                     NSString *earliestUserPath = [temp componentsJoinedByString:@"/"];
-                    NSInteger earliestLogsCount = [YPLogTool getUserPathLogsCount:earliestUserPath];
-                    if (earliestLogsCount > forceSaveDays) {
+                    
+                    NSInteger userLogsCount = [YPLogTool getUserPathLogsCount:earliestUserPath];
+                    if (userLogsCount > forceSaveDays) {
                         if ([fileManager fileExistsAtPath:earliestFilePath]) {
                             [fileManager removeItemAtPath:earliestFilePath error:nil];
                             YPWLogInfo(@"发现符合条件的日志文件，已清理:%@", [earliestFilePath componentsSeparatedByString:@"/"].lastObject);
+                            
                             goto FILE_SIZE_CHECK_LOOP;
                         }
                         
                     }else {
+                        
                         NSString *userDirectoryName = temp.lastObject;
-                        [_tempNoClearUserDirectories addObject:userDirectoryName];
+                        
+                        [_tempNoClearUserDirectoryNames addObject:userDirectoryName];
                         
                         goto FILE_EARLIEST_LOOP;
                     }
@@ -247,15 +271,15 @@ static long long _logTimes = 0;
     if (![fileManager fileExistsAtPath:YPSaveLogsDirectoryPath]) {
         return 0.0;
     }
-    NSEnumerator *usersFilesEnumerator = [[fileManager subpathsAtPath:YPSaveLogsDirectoryPath] objectEnumerator];
-    NSString *userFileName;
-    while ((userFileName = [usersFilesEnumerator nextObject]) != nil) {
-        NSString *userPath = [YPSaveLogsDirectoryPath stringByAppendingPathComponent:userFileName];
-        NSEnumerator *logsFilesEnumerator = [[fileManager subpathsAtPath:userPath] objectEnumerator];
-        NSString *logFileName;
-        while ((logFileName = [logsFilesEnumerator nextObject]) != nil) {
-            NSString *logPath = [userPath stringByAppendingPathComponent:logFileName];
-            folderSize += [YPLogTool fileSizeAtPath:logPath];
+  
+    NSEnumerator *logsFilesEnumerator = [[fileManager subpathsAtPath:YPSaveLogsDirectoryPath] objectEnumerator];
+   
+    NSString *pathName;
+    while ((pathName = [logsFilesEnumerator nextObject]) != nil) {
+        if ([pathName hasSuffix:@".text"]) {
+            
+            NSString *logFilePath = [YPSaveLogsDirectoryPath stringByAppendingPathComponent:pathName];
+            folderSize += [YPLogTool fileSizeAtPath:logFilePath];
         }
     }
     
@@ -277,32 +301,27 @@ static long long _logTimes = 0;
 //MARK: - getEarliestLogFilePath
 + (NSString *)getEarliestLogFilePath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSEnumerator *usersFilesEnumerator = [[fileManager subpathsAtPath:YPSaveLogsDirectoryPath] objectEnumerator];
-    NSString *userFileName;
+  
+    NSEnumerator *logsFilesEnumerator = [[fileManager subpathsAtPath:YPSaveLogsDirectoryPath] objectEnumerator];
+    
+    NSString *pathName;
 
     int minDay = 22161231;
-    NSString *earliestFilePath = nil;
-    while ((userFileName = [usersFilesEnumerator nextObject]) != nil) {
-        NSString *userDirectoryName = userFileName;
-        if ([userDirectoryName containsString:@"/"]) {
-            userDirectoryName = [userFileName componentsSeparatedByString:@"/"][0];
-        }
-        if (![_tempNoClearUserDirectories containsObject:userDirectoryName]) {
-            NSString *userPath = [YPSaveLogsDirectoryPath stringByAppendingPathComponent:userFileName];
-            NSEnumerator *logsFilesEnumerator = [[fileManager subpathsAtPath:userPath] objectEnumerator];
-            NSString *logFileName;
+    NSString *earliestFilePath = @"NoFilePath";
+    
+    while ((pathName = [logsFilesEnumerator nextObject]) != nil) {
+        if ([pathName hasSuffix:@".text"]) {
             
-            while ((logFileName = [logsFilesEnumerator nextObject]) != nil) {
-                int day = [[[logFileName componentsSeparatedByString:@"_"].lastObject componentsSeparatedByString:@"."][0] intValue];
+            NSString *userDirectoryName = [pathName componentsSeparatedByString:@"/"][0];
+            if (![_tempNoClearUserDirectoryNames containsObject:userDirectoryName]) {
+                
+                NSString *logFilePath = [YPSaveLogsDirectoryPath stringByAppendingPathComponent:pathName];
+                int day = [[[[pathName componentsSeparatedByString:@"/"][1] componentsSeparatedByString:@"_"].lastObject componentsSeparatedByString:@"."][0] intValue];
                 if (day < minDay) {
                     minDay = day;
-                    earliestFilePath = [userPath stringByAppendingPathComponent:logFileName];
+                    earliestFilePath = logFilePath;
                 }
             }
-        
-        }else {
-            earliestFilePath = @"NoFilePath";
-            break;
         }
     }
     
