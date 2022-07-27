@@ -44,7 +44,7 @@ static long long _logTimes = 0;
 #pragma mark - 🔥 public Methods 🔥 公共方法
 
 //MARK: - setWriteToFileOn: bindUserId:
-+ (void)setWriteToFileOn:(BOOL)on bindUserId:(NSString *)userId {
++ (void)yp_setWriteToFileOn:(BOOL)on bindUserId:(NSString *)userId {
     _writeToFile = on;
     _curUserId = (userId && userId.length) ? userId : @"DefaultUser";
 
@@ -56,12 +56,12 @@ static long long _logTimes = 0;
 }
 
 //MARK: - setForceWirteToFile:
-+ (void)setForceWirteToFile:(BOOL)forceToWrite {
++ (void)yp_setForceWirteToFile:(BOOL)forceToWrite {
     _forceToWirte = forceToWrite;
 }
 
 //MARK: - logWithType: file: line: function: format:
-+ (void)logWithType:(YP_LOG_LEVEL_TYPE)type file:(NSString *)file line:(NSUInteger)line function:(NSString *)function format:(NSString *)format {
++ (void)yp_logWithType:(YP_LOG_LEVEL_TYPE)type file:(NSString *)file line:(NSUInteger)line function:(NSString *)function format:(NSString *)format {
     _curLogType = type;
     NSString *timeStr = [YPLogTool getFormatTimeStr];
 #if DEBUG
@@ -115,7 +115,7 @@ static long long _logTimes = 0;
 }
  
 //MARK: - getCurrentLogContents
-+ (NSArray <YPLogContentModel *> *)getCurrentLogContents {
++ (NSArray <YPLogContentModel *> *)yp_getCurrentLogContents {
     return _logContentModelsDataArr;
 }
 

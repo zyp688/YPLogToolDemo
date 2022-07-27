@@ -27,17 +27,17 @@
 
 /** 提供给外部使用的便捷打印宏*/
 // ----- 单纯DEBEG环境下的打印 不参与写入文件 🐭
-#define NSLog(frmt, ...) [YPLogTool logWithType:YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
-#define YPDLog(frmt, ...) [YPLogTool logWithType:YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define NSLog(frmt, ...) [YPLogTool yp_logWithType:YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPDLog(frmt, ...) [YPLogTool yp_logWithType:YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 
 
 // ------ 有可能会写入文件的宏 具体根据开关等环境变量判定 YPWLog***
 // 打印输出普通信息 ❄️
-#define YPWLogInfo(frmt, ...) [YPLogTool logWithType:YP_LOG_LEVEL_INFO file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPWLogInfo(frmt, ...) [YPLogTool yp_logWithType:YP_LOG_LEVEL_INFO file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 // 打印输出警告信息 ⚠️
-#define YPWLogWarn(frmt, ...) [YPLogTool logWithType:YP_LOG_LEVEL_WARN file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPWLogWarn(frmt, ...) [YPLogTool yp_logWithType:YP_LOG_LEVEL_WARN file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 // 打印输出错误信息 ❌
-#define YPWLogError(frmt, ...) [YPLogTool logWithType:YP_LOG_LEVEL_ERROR file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPWLogError(frmt, ...) [YPLogTool yp_logWithType:YP_LOG_LEVEL_ERROR file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent]  line:__LINE__ function:[NSString stringWithFormat:@"%s", __FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 
 
 /**
@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
  * @param on - 开关 内部会自动区分开发环境/生产环境 (只有生产环境&&设置为YES时会写入文件)
  * @param userId - 用户唯一标识，用于区分写入文件名称，如需要上传服务器时-也便于区分用户
  */
-+ (void)setWriteToFileOn:(BOOL)on bindUserId:(NSString *)userId;
++ (void)yp_setWriteToFileOn:(BOOL)on bindUserId:(NSString *)userId;
 
 
 /**
@@ -96,7 +96,7 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
  *  - 可用于真机联调的测试直接down包看效果【一般不建议使用强制写入】
  * @param forceToWrite - 不区分环境 强制写入到文件中
  */
-+ (void)setForceWirteToFile:(BOOL)forceToWrite;
++ (void)yp_setForceWirteToFile:(BOOL)forceToWrite;
 
 
 /**
@@ -106,14 +106,14 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
  * @param function - 对应类中调用的方法
  * @param format - 打印内容
  */
-+ (void)logWithType:(YP_LOG_LEVEL_TYPE)type file:(NSString *)file line:(NSUInteger)line function:(NSString *)function format:(NSString *)format;
++ (void)yp_logWithType:(YP_LOG_LEVEL_TYPE)type file:(NSString *)file line:(NSUInteger)line function:(NSString *)function format:(NSString *)format;
 
 
 /**
  * @brief 获取当前的打印过的数据 （可以用于一些图形化日志回显）
  * @return 存储打印过的内容的数组
  */
-+ (NSArray <YPLogContentModel *> *)getCurrentLogContents;
++ (NSArray <YPLogContentModel *> *)yp_getCurrentLogContents;
 
 
 

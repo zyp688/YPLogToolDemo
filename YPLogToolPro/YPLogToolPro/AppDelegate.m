@@ -20,9 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [YPLogTool setWriteToFileOn:YES bindUserId:@""];
-    // 为了真机调试，直接看效果 - - - 开启了强制写入文件
-    [YPLogTool setForceWirteToFile:YES];
+    [YPLogTool yp_setWriteToFileOn:YES bindUserId:@""];
+    // 为了真机调试，直接看效果 - - - 开启了强制写入文件, 不用切环境了就~~~偷懒😄
+    [YPLogTool yp_setForceWirteToFile:YES];
     
     return YES;
 }
