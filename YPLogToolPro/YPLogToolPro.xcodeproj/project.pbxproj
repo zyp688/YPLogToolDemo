@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84DD7BE5288F8B5400C6553E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BE4288F8B5400C6553E /* AppDelegate.m */; };
+		84DD7BE8288F8B5400C6553E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BE7288F8B5400C6553E /* SceneDelegate.m */; };
+		84DD7BEB288F8B5400C6553E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BEA288F8B5400C6553E /* ViewController.m */; };
+		84DD7BEE288F8B5400C6553E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DD7BEC288F8B5400C6553E /* Main.storyboard */; };
+		84DD7BF0288F8B5600C6553E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84DD7BEF288F8B5600C6553E /* Assets.xcassets */; };
+		84DD7BF3288F8B5600C6553E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DD7BF1288F8B5600C6553E /* LaunchScreen.storyboard */; };
+		84DD7BF6288F8B5600C6553E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BF5288F8B5600C6553E /* main.m */; };
+		84DD7C00288F8B5600C6553E /* YPLogToolProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BFF288F8B5600C6553E /* YPLogToolProTests.m */; };
+		84DD7C0A288F8B5600C6553E /* YPLogToolProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C09288F8B5600C6553E /* YPLogToolProUITests.m */; };
+		84DD7C0C288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */; };
+		84DD7C1B288F8BB500C6553E /* YPLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C1A288F8BB500C6553E /* YPLogTool.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84DD7BFC288F8B5600C6553E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84DD7BD8288F8B5400C6553E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84DD7BDF288F8B5400C6553E;
+			remoteInfo = YPLogToolPro;
+		};
+		84DD7C06288F8B5600C6553E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84DD7BD8288F8B5400C6553E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84DD7BDF288F8B5400C6553E;
+			remoteInfo = YPLogToolPro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84DD7BE0288F8B5400C6553E /* YPLogToolPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YPLogToolPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DD7BE3288F8B5400C6553E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84DD7BE4288F8B5400C6553E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84DD7BE6288F8B5400C6553E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		84DD7BE7288F8B5400C6553E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		84DD7BE9288F8B5400C6553E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		84DD7BEA288F8B5400C6553E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84DD7BED288F8B5400C6553E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84DD7BEF288F8B5600C6553E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84DD7BF2288F8B5600C6553E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84DD7BF4288F8B5600C6553E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DD7BF5288F8B5600C6553E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84DD7BFB288F8B5600C6553E /* YPLogToolProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YPLogToolProTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DD7BFF288F8B5600C6553E /* YPLogToolProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogToolProTests.m; sourceTree = "<group>"; };
+		84DD7C05288F8B5600C6553E /* YPLogToolProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YPLogToolProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DD7C09288F8B5600C6553E /* YPLogToolProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogToolProUITests.m; sourceTree = "<group>"; };
+		84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogToolProUITestsLaunchTests.m; sourceTree = "<group>"; };
+		84DD7C19288F8BB500C6553E /* YPLogTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPLogTool.h; sourceTree = "<group>"; };
+		84DD7C1A288F8BB500C6553E /* YPLogTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogTool.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84DD7BDD288F8B5400C6553E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7BF8288F8B5600C6553E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7C02288F8B5600C6553E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84DD7BD7288F8B5400C6553E = {
+			isa = PBXGroup;
+			children = (
+				84DD7BE2288F8B5400C6553E /* YPLogToolPro */,
+				84DD7BFE288F8B5600C6553E /* YPLogToolProTests */,
+				84DD7C08288F8B5600C6553E /* YPLogToolProUITests */,
+				84DD7BE1288F8B5400C6553E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84DD7BE1288F8B5400C6553E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7BE0288F8B5400C6553E /* YPLogToolPro.app */,
+				84DD7BFB288F8B5600C6553E /* YPLogToolProTests.xctest */,
+				84DD7C05288F8B5600C6553E /* YPLogToolProUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84DD7BE2288F8B5400C6553E /* YPLogToolPro */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7C18288F8B7B00C6553E /* YPLogTool */,
+				84DD7BE3288F8B5400C6553E /* AppDelegate.h */,
+				84DD7BE4288F8B5400C6553E /* AppDelegate.m */,
+				84DD7BE6288F8B5400C6553E /* SceneDelegate.h */,
+				84DD7BE7288F8B5400C6553E /* SceneDelegate.m */,
+				84DD7BE9288F8B5400C6553E /* ViewController.h */,
+				84DD7BEA288F8B5400C6553E /* ViewController.m */,
+				84DD7BEC288F8B5400C6553E /* Main.storyboard */,
+				84DD7BEF288F8B5600C6553E /* Assets.xcassets */,
+				84DD7BF1288F8B5600C6553E /* LaunchScreen.storyboard */,
+				84DD7BF4288F8B5600C6553E /* Info.plist */,
+				84DD7BF5288F8B5600C6553E /* main.m */,
+			);
+			path = YPLogToolPro;
+			sourceTree = "<group>";
+		};
+		84DD7BFE288F8B5600C6553E /* YPLogToolProTests */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7BFF288F8B5600C6553E /* YPLogToolProTests.m */,
+			);
+			path = YPLogToolProTests;
+			sourceTree = "<group>";
+		};
+		84DD7C08288F8B5600C6553E /* YPLogToolProUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7C09288F8B5600C6553E /* YPLogToolProUITests.m */,
+				84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */,
+			);
+			path = YPLogToolProUITests;
+			sourceTree = "<group>";
+		};
+		84DD7C18288F8B7B00C6553E /* YPLogTool */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7C19288F8BB500C6553E /* YPLogTool.h */,
+				84DD7C1A288F8BB500C6553E /* YPLogTool.m */,
+			);
+			path = YPLogTool;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84DD7BDF288F8B5400C6553E /* YPLogToolPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84DD7C0F288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolPro" */;
+			buildPhases = (
+				84DD7BDC288F8B5400C6553E /* Sources */,
+				84DD7BDD288F8B5400C6553E /* Frameworks */,
+				84DD7BDE288F8B5400C6553E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YPLogToolPro;
+			productName = YPLogToolPro;
+			productReference = 84DD7BE0288F8B5400C6553E /* YPLogToolPro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84DD7BFA288F8B5600C6553E /* YPLogToolProTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84DD7C12288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolProTests" */;
+			buildPhases = (
+				84DD7BF7288F8B5600C6553E /* Sources */,
+				84DD7BF8288F8B5600C6553E /* Frameworks */,
+				84DD7BF9288F8B5600C6553E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84DD7BFD288F8B5600C6553E /* PBXTargetDependency */,
+			);
+			name = YPLogToolProTests;
+			productName = YPLogToolProTests;
+			productReference = 84DD7BFB288F8B5600C6553E /* YPLogToolProTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84DD7C04288F8B5600C6553E /* YPLogToolProUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84DD7C15288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolProUITests" */;
+			buildPhases = (
+				84DD7C01288F8B5600C6553E /* Sources */,
+				84DD7C02288F8B5600C6553E /* Frameworks */,
+				84DD7C03288F8B5600C6553E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84DD7C07288F8B5600C6553E /* PBXTargetDependency */,
+			);
+			name = YPLogToolProUITests;
+			productName = YPLogToolProUITests;
+			productReference = 84DD7C05288F8B5600C6553E /* YPLogToolProUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84DD7BD8288F8B5400C6553E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					84DD7BDF288F8B5400C6553E = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					84DD7BFA288F8B5600C6553E = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 84DD7BDF288F8B5400C6553E;
+					};
+					84DD7C04288F8B5600C6553E = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 84DD7BDF288F8B5400C6553E;
+					};
+				};
+			};
+			buildConfigurationList = 84DD7BDB288F8B5400C6553E /* Build configuration list for PBXProject "YPLogToolPro" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84DD7BD7288F8B5400C6553E;
+			productRefGroup = 84DD7BE1288F8B5400C6553E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84DD7BDF288F8B5400C6553E /* YPLogToolPro */,
+				84DD7BFA288F8B5600C6553E /* YPLogToolProTests */,
+				84DD7C04288F8B5600C6553E /* YPLogToolProUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84DD7BDE288F8B5400C6553E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DD7BF3288F8B5600C6553E /* LaunchScreen.storyboard in Resources */,
+				84DD7BF0288F8B5600C6553E /* Assets.xcassets in Resources */,
+				84DD7BEE288F8B5400C6553E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7BF9288F8B5600C6553E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7C03288F8B5600C6553E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84DD7BDC288F8B5400C6553E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DD7BEB288F8B5400C6553E /* ViewController.m in Sources */,
+				84DD7BE5288F8B5400C6553E /* AppDelegate.m in Sources */,
+				84DD7C1B288F8BB500C6553E /* YPLogTool.m in Sources */,
+				84DD7BF6288F8B5600C6553E /* main.m in Sources */,
+				84DD7BE8288F8B5400C6553E /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7BF7288F8B5600C6553E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DD7C00288F8B5600C6553E /* YPLogToolProTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84DD7C01288F8B5600C6553E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DD7C0C288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m in Sources */,
+				84DD7C0A288F8B5600C6553E /* YPLogToolProUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84DD7BFD288F8B5600C6553E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84DD7BDF288F8B5400C6553E /* YPLogToolPro */;
+			targetProxy = 84DD7BFC288F8B5600C6553E /* PBXContainerItemProxy */;
+		};
+		84DD7C07288F8B5600C6553E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84DD7BDF288F8B5400C6553E /* YPLogToolPro */;
+			targetProxy = 84DD7C06288F8B5600C6553E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84DD7BEC288F8B5400C6553E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DD7BED288F8B5400C6553E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84DD7BF1288F8B5600C6553E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DD7BF2288F8B5600C6553E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84DD7C0D288F8B5600C6553E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84DD7C0E288F8B5600C6553E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84DD7C10288F8B5600C6553E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWT2DU6L3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YPLogToolPro/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84DD7C11288F8B5600C6553E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWT2DU6L3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YPLogToolPro/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84DD7C13288F8B5600C6553E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolProTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YPLogToolPro.app/YPLogToolPro";
+			};
+			name = Debug;
+		};
+		84DD7C14288F8B5600C6553E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolProTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YPLogToolPro.app/YPLogToolPro";
+			};
+			name = Release;
+		};
+		84DD7C16288F8B5600C6553E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolProUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YPLogToolPro;
+			};
+			name = Debug;
+		};
+		84DD7C17288F8B5600C6553E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yp.penggod.YPLogToolProUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YPLogToolPro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84DD7BDB288F8B5400C6553E /* Build configuration list for PBXProject "YPLogToolPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DD7C0D288F8B5600C6553E /* Debug */,
+				84DD7C0E288F8B5600C6553E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84DD7C0F288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DD7C10288F8B5600C6553E /* Debug */,
+				84DD7C11288F8B5600C6553E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84DD7C12288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolProTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DD7C13288F8B5600C6553E /* Debug */,
+				84DD7C14288F8B5600C6553E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84DD7C15288F8B5600C6553E /* Build configuration list for PBXNativeTarget "YPLogToolProUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84DD7C16288F8B5600C6553E /* Debug */,
+				84DD7C17288F8B5600C6553E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84DD7BD8288F8B5400C6553E /* Project object */;
+}
