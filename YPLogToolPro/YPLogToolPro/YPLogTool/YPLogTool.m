@@ -65,16 +65,15 @@ static long long _logTimes = 0;
     _curLogType = type;
     NSString *timeStr = [YPLogTool getFormatTimeStr];
 #if DEBUG
-
-    if ((!_writeToFile) && (!_forceToWirte)) {
+    if (type == YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG) {
+        fprintf(stderr,"🐭『DEBUG』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
+    }else if (!_forceToWirte) {
         if (type == YP_LOG_LEVEL_INFO) {
             fprintf(stderr,"❄️『INFO』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
         }else if (type == YP_LOG_LEVEL_WARN) {
             fprintf(stderr,"⚠️『WARN』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
         }else if (type == YP_LOG_LEVEL_ERROR) {
             fprintf(stderr,"❌『ERROR』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
-        }else if (type == YP_LOG_LEVEL_ONLY_DEBUG_PRINT_NSLOG) {
-            fprintf(stderr,"🐭『DEBUG』[%s] [%s:%lu] %s ●:%s\n",[timeStr UTF8String], [file UTF8String], (unsigned long)line, [function UTF8String], [format UTF8String]);
         }
     }
     
@@ -94,7 +93,7 @@ static long long _logTimes = 0;
     
     
     NSString *curDayStr = [[timeStr componentsSeparatedByString:@" "][0] stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    if (![curDayStr isEqualToString:_useBeginTimeDayStr]) {
+    if (![curDayStr isEqualToString:_useBeginTimeDayStr] && _useBeginTimeDayStr) {
         YPWLogWarn(@"少年够疯狂,决战到天亮！跨夜时间:【%@->%@】", _useBeginTimeDayStr, curDayStr);
         _useBeginTimeDayStr = curDayStr;
         [_tempNoClearUserDirectoryNames removeAllObjects];
@@ -210,7 +209,7 @@ static long long _logTimes = 0;
         FILE_SIZE_CHECK_LOOP: {
             
             float curFileSize = [YPLogTool getTotalLogsSizeMb];
-            if (curFileSize >= maxFoldSize) {
+            if (curFileSize >= yp_maxFoldSize) {
                 FILE_EARLIEST_LOOP: {
                     
                     NSString *earliestFilePath = [YPLogTool getEarliestLogFilePath];
@@ -225,7 +224,7 @@ static long long _logTimes = 0;
                     NSString *earliestUserPath = [temp componentsJoinedByString:@"/"];
                     
                     NSInteger userLogsCount = [YPLogTool getUserPathLogsCount:earliestUserPath];
-                    if (userLogsCount > forceSaveDays) {
+                    if (userLogsCount > yp_forceSaveDays) {
                         if ([fileManager fileExistsAtPath:earliestFilePath]) {
                             [fileManager removeItemAtPath:earliestFilePath error:nil];
                             YPWLogInfo(@"发现符合条件的日志文件，已清理:%@", [earliestFilePath componentsSeparatedByString:@"/"].lastObject);

@@ -44,17 +44,17 @@
  * 最大存储日志文件大小(Mb)
  * 默认值为30Mb
  * 即当日志文件总大小高于30Mb时，会触发自动清理最早的日志文件
- * - 注意：如果设置了『forceSaveDays』强制保留期天数， 则不会自动清除处于保留天数内的日志文件
+ * - 注意：如果设置了『yp_forceSaveDays』强制保留期天数， 则不会自动清除处于保留天数内的日志文件
  */
-static float maxFoldSize = 30;
+static float yp_maxFoldSize = 30;
 
 
 /**
- * 强制保留最近『forceSaveDays』天数内的日志
+ * 强制保留最近『yp_forceSaveDays』天数内的日志
  * 默认保留7天当日志文件
- * 当大于『maxFoldSize』Mb时，如最早期的日志文件仍如处于『forceSaveDays』天数范围内，优先保留，不会触发自动清除
+ * 当大于『yp_maxFoldSize』Mb时，如最早期的日志文件仍如处于『yp_forceSaveDays』天数范围内，优先保留，不会触发自动清除
  */
-static int forceSaveDays = 7;
+static int yp_forceSaveDays = 7;
 
 // 打印类型
 typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
