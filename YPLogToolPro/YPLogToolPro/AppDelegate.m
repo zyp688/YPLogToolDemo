@@ -8,7 +8,7 @@
 #import "AppDelegate.h"
 
 
-#import "YPLogTool.h"
+#import "YPLoggerTool.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [YPLogTool yp_setWriteToFileOn:YES bindUserId:@""];
-    // 为了真机调试，直接看效果 - - - 开启了强制写入文件, 不用切环境了就~~~偷懒😄
-    [YPLogTool yp_setForceWirteToFile:YES];
+    [YPLoggerTool yp_setWriteLogLevel:YP_LOG_LEVEL_INFO];
     
     return YES;
 }

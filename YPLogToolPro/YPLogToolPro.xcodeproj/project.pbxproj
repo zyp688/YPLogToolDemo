@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843E12A62BC7DAF500EA1F95 /* YPLoggerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 843E12A32BC7DA9400EA1F95 /* YPLoggerTool.m */; };
+		847C17EE2ADFB4D500CE325C /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847C17ED2ADFB4D500CE325C /* Photos.framework */; };
 		84DD7BE5288F8B5400C6553E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BE4288F8B5400C6553E /* AppDelegate.m */; };
 		84DD7BE8288F8B5400C6553E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BE7288F8B5400C6553E /* SceneDelegate.m */; };
 		84DD7BEB288F8B5400C6553E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BEA288F8B5400C6553E /* ViewController.m */; };
@@ -17,7 +19,6 @@
 		84DD7C00288F8B5600C6553E /* YPLogToolProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7BFF288F8B5600C6553E /* YPLogToolProTests.m */; };
 		84DD7C0A288F8B5600C6553E /* YPLogToolProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C09288F8B5600C6553E /* YPLogToolProUITests.m */; };
 		84DD7C0C288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */; };
-		84DD7C1B288F8BB500C6553E /* YPLogTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD7C1A288F8BB500C6553E /* YPLogTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		843E12A32BC7DA9400EA1F95 /* YPLoggerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPLoggerTool.m; sourceTree = "<group>"; };
+		843E12A42BC7DA9400EA1F95 /* YPLoggerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPLoggerTool.h; sourceTree = "<group>"; };
+		847C17ED2ADFB4D500CE325C /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		84DD7BE0288F8B5400C6553E /* YPLogToolPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YPLogToolPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DD7BE3288F8B5400C6553E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84DD7BE4288F8B5400C6553E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,8 +59,7 @@
 		84DD7C05288F8B5600C6553E /* YPLogToolProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YPLogToolProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DD7C09288F8B5600C6553E /* YPLogToolProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogToolProUITests.m; sourceTree = "<group>"; };
 		84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogToolProUITestsLaunchTests.m; sourceTree = "<group>"; };
-		84DD7C19288F8BB500C6553E /* YPLogTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YPLogTool.h; sourceTree = "<group>"; };
-		84DD7C1A288F8BB500C6553E /* YPLogTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLogTool.m; sourceTree = "<group>"; };
+		84DD7C1A288F8BB500C6553E /* YPLoggerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YPLoggerTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847C17EE2ADFB4D500CE325C /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843E12A12BC7DA8000EA1F95 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				84DD7C1A288F8BB500C6553E /* YPLoggerTool.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		843E12A22BC7DA9400EA1F95 /* YPLoggerTool */ = {
+			isa = PBXGroup;
+			children = (
+				843E12A42BC7DA9400EA1F95 /* YPLoggerTool.h */,
+				843E12A32BC7DA9400EA1F95 /* YPLoggerTool.m */,
+			);
+			path = YPLoggerTool;
+			sourceTree = "<group>";
+		};
+		847C17EC2ADFB4D400CE325C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				847C17ED2ADFB4D500CE325C /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84DD7BD7288F8B5400C6553E = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +120,8 @@
 				84DD7BFE288F8B5600C6553E /* YPLogToolProTests */,
 				84DD7C08288F8B5600C6553E /* YPLogToolProUITests */,
 				84DD7BE1288F8B5400C6553E /* Products */,
+				847C17EC2ADFB4D400CE325C /* Frameworks */,
+				843E12A12BC7DA8000EA1F95 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,7 +138,7 @@
 		84DD7BE2288F8B5400C6553E /* YPLogToolPro */ = {
 			isa = PBXGroup;
 			children = (
-				84DD7C18288F8B7B00C6553E /* YPLogTool */,
+				843E12A22BC7DA9400EA1F95 /* YPLoggerTool */,
 				84DD7BE3288F8B5400C6553E /* AppDelegate.h */,
 				84DD7BE4288F8B5400C6553E /* AppDelegate.m */,
 				84DD7BE6288F8B5400C6553E /* SceneDelegate.h */,
@@ -138,15 +169,6 @@
 				84DD7C0B288F8B5600C6553E /* YPLogToolProUITestsLaunchTests.m */,
 			);
 			path = YPLogToolProUITests;
-			sourceTree = "<group>";
-		};
-		84DD7C18288F8B7B00C6553E /* YPLogTool */ = {
-			isa = PBXGroup;
-			children = (
-				84DD7C19288F8BB500C6553E /* YPLogTool.h */,
-				84DD7C1A288F8BB500C6553E /* YPLogTool.m */,
-			);
-			path = YPLogTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843E12A62BC7DAF500EA1F95 /* YPLoggerTool.m in Sources */,
 				84DD7BEB288F8B5400C6553E /* ViewController.m in Sources */,
 				84DD7BE5288F8B5400C6553E /* AppDelegate.m in Sources */,
-				84DD7C1B288F8BB500C6553E /* YPLogTool.m in Sources */,
 				84DD7BF6288F8B5600C6553E /* main.m in Sources */,
 				84DD7BE8288F8B5400C6553E /* SceneDelegate.m in Sources */,
 			);
