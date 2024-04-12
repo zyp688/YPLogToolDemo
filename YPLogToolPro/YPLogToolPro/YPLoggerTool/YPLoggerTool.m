@@ -367,6 +367,7 @@ static NSLock *yp_logPrintLock;
 + (void)yp_printLogWithContentModel:(YPLogContentModel *)contentModel {
     [yp_logPrintLock lock];
     NSString *logLevelFlag = contentModel.logLevel == YP_LOG_LEVEL_VERBOSE || contentModel.logLevel == YP_LOG_LEVEL_INFO ? @"❄️" : contentModel.logLevel == YP_LOG_LEVEL_DEBUG ? @"🐭" : contentModel.logLevel == YP_LOG_LEVEL_WARN ? @"⚠️" : contentModel.logLevel == YP_LOG_LEVEL_ERROR ? @"❌" : @"";
+    logLevelFlag = @"";
     if (contentModel.keyIdentifierStr.length) {
         fprintf(contentModel.logLevel == YP_LOG_LEVEL_ERROR ? stderr : stdout,"%s [%s] [%s] %s [%s:%lu] [%s] [%s] :%s\n",[logLevelFlag UTF8String], [contentModel.timeStr UTF8String], [contentModel.fmtLogLevelStr UTF8String], [contentModel.keyIdentifierStr UTF8String], [contentModel.file UTF8String], (unsigned long)contentModel.line, [contentModel.functionName UTF8String], [contentModel.threadFlag UTF8String], [contentModel.format UTF8String]);
     }else {
