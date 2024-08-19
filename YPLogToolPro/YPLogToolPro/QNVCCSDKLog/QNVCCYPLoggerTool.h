@@ -8,8 +8,8 @@
 /**
  * App根目录
  *  - Library
- *      - Caches
- *          - YPLogs
+ *      - Log
+ *          - QNVCCSDKLogs
  *              - DefaultUser（默认用户）
  *                  - YPLog_DefaultUser_20160518.text
  *                  - YPLog_DefaultUser_20160519.text
@@ -17,30 +17,31 @@
  *              - User1
  *                  - YPLog_User1_20160520.text
  *                  - YPLog_User1_20160521.text
- *                  - YPLog...
+ *                  - YPLog...s
  *              - User...
  */
-// <<< 其中 Library/Caches/YPLogs 为日志存储的根路径，提供了API可自行更新此路径
+// <<< 其中 Library/Log/QNVCCSDKLogs 为日志存储的根路径，提供了API可自行更新此路径
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 
 // 便捷使用宏
+
 /** 接管系统原有打印，替换为仅在DEBUG模式下打印 - 可根据实际情况删除*/
-#define NSLog(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_VERBOSE keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+//#define NSLog(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_VERBOSE keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+
 
 /** 打印VERBOSE日志信息*/
-#define YPLogVerbose(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_VERBOSE keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPLogVerbose(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_VERBOSE keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 /** 打印DEBUG日志信息*/
-#define YPLogDebug(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_DEBUG keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPLogDebug(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_DEBUG keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 /** 打印INFO日志信息*/
-#define YPLogInfo(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_INFO keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPLogInfo(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_INFO keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 /** 打印WARN日志信息*/
-#define YPLogWarn(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_WARN keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
+#define YPLogWarn(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_WARN keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 /** 打印ERROR日志信息*/
-#define YPLogError(frmt, ...) [YPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_ERROR keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
-
+#define YPLogError(frmt, ...) [QNVCCYPLoggerTool yp_logWithLevel:YP_LOG_LEVEL_ERROR keyIdentifiers:nil file:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] line:__LINE__ function:[NSString stringWithUTF8String:__PRETTY_FUNCTION__] format:[NSString stringWithFormat:frmt, ##__VA_ARGS__]]
 
 
 // 打印类型
@@ -60,6 +61,7 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
 @property (strong, nonatomic) UIColor *fontColor;
 @property (strong, nonatomic) NSString *timeStr;
 @property (assign, nonatomic) YP_LOG_LEVEL_TYPE logLevel;
+@property (strong, nonatomic) NSString *printLogLevelFlag;
 @property (strong, nonatomic) NSString *fmtLogLevelStr;
 @property (strong, nonatomic) NSArray <NSString *> *keyIdentifiers;
 @property (strong, nonatomic) NSString *keyIdentifierStr;
@@ -71,17 +73,33 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
 @property (strong, nonatomic) NSString *format;
 @property (strong, nonatomic) NSString *fullLogContent;
 
+
+@property (assign, nonatomic) const char *timeStrUTF8;
+@property (assign, nonatomic) const char *fmtLogLevelStrUTF8;
+@property (assign, nonatomic) const char *printLogLevelFlagUTF8;
+@property (assign, nonatomic) const char *keyIdentifierStrUTF8;
+@property (assign, nonatomic) const char *fileUTF8;
+@property (assign, nonatomic) const char *threadFlagUTF8;
+@property (assign, nonatomic) const char *functionUTF8;
+@property (assign, nonatomic) const char *functionNameUTF8;
+@property (assign, nonatomic) const char *formatUTF8;
+
+
+
+
+
+
 @end
 
 
 
 // 日志工具类
-@interface YPLoggerTool : NSObject
+@interface QNVCCYPLoggerTool : NSObject
 
 
 /**
  * @brief 设置日志文件存储的根路径 - 完整目录路径
- * @param saveLogsPath - 路径地址（默认: @"Library/Caches/YPLogs"，可参考上方层级分析）
+ * @param saveLogsPath - 路径地址（默认: @"Library/Log/QNVCCSDKLogs"，可参考上方层级分析）
  * @discuss 当前仅支持调整一次，注意不要频繁更改！！！否则会影响空间、时间限制的统计
  */
 + (void)yp_setSaveLogsPath:(NSString *)saveLogsPath;
@@ -101,13 +119,13 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
 
 /**
  * @brief 设置日志最大存储空间
- * @param maxFoldSize - 最大存储空间（默认为50Mb）
+ * @param maxFoldSize - 最大存储空间（默认为100Mb）
  */
 + (void)yp_setMaxFoldSize:(CGFloat)maxFoldSize;
 
 /**
  * @brief 设置日志最长保留时间
- * @param maxSaveDays - 最长保留时间（默认为10天）
+ * @param maxSaveDays - 最长保留时间（默认为30天）
  * @discuss 目前优先级方面：时间限制  > 空间限制， 即即使超过了空间限制，但只要日志仍处于有效的保留时间内，不会进行清理
  */
 + (void)yp_setMaxSaveDays:(int)maxSaveDays;
@@ -116,7 +134,7 @@ typedef NS_ENUM(NSUInteger, YP_LOG_LEVEL_TYPE) {
 
 /**
  * @brief 设置密文加密时用到的key
- * @param aesKey - 加密日志用到的key，目前支持AES加密
+ * @param aesKey - 加密日志用到的key，目前支持AES加密 16位
  */
 + (void)yp_setSecureAesKey:(NSString *)aesKey;
 
